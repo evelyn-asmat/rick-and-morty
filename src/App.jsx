@@ -1,9 +1,15 @@
 import './App.css'
+import Cards from './components/Cards.jsx';
+import SearchBar from './components/SearchBar.jsx';
+import characters from './data.js';
 
 function App() {
   return (
     <>
-      <h1>Rick and Morty app</h1>
+      <div className='App'>
+        <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+        <Cards characters={characters} />
+      </div>
     </>
   )
 }
