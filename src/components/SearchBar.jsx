@@ -7,10 +7,16 @@ export default function SearchBar(props) {
       setId(event.target.value);
    }
 
+   const handleClick = event => {
+      event.preventDefault();
+      props.onSearch(id);
+      setId("");
+   }
+
    return (
       <div>
          <input type='search' onChange={handleChange} value={id}/>
-         <button onClick={() => props.onSearch(id)}>Agregar</button>
+         <button onClick={handleClick}>Agregar</button>
       </div>
    );
 }

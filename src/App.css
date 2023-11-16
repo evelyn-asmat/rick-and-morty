@@ -1,3 +1,33 @@
+button{
+  background:    #ff00a9;
+}
+a{
+  color: #00ddff;
+}
 .App {
   text-align: center;
+  color: white;
 }
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly
+}
+.card {
+  width: 15%;
+  padding: 2em;
+  margin: 1em 0.5em;
+  background: rgba(128,0,255,0.15);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(128,0,255,0.075);
+}
+.character-img {
+  width: 100%;
+  clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+}
+
+.wrap-img{
+  filter: drop-shadow(10px 10px 10px #a5ff0bb3);
+}
+

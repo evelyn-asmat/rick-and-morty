@@ -1,8 +1,10 @@
 import axios from "axios";
 import {useState} from 'react';
 import './App.css';
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav.jsx';
+import { Cards, Nav, About, Detail, Error} from './components';
+import { Routes, Route } from 'react-router-dom';
+
+const URL = "https://rickandmortyapi.com/api/character";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -12,8 +14,7 @@ function App() {
       window.alert('¡Personaje ya agregado!');
       return;
     }
-    // axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-evelyn-asmat`).then(
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+    axios(`${URL}/${id}`).then(
       ({ data }) => {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
@@ -25,7 +26,7 @@ function App() {
   }
 
   const onClose = (id) => {
-    setCharacters(characters.filter(c => c.id !== id));
+    setCharacters(characters.filter(c => c.id !== Number(id)));
   }
 
   const onClickRandom = () => {
@@ -37,8 +38,20 @@ function App() {
     <>
       <div className='App'>
         <Nav onSearch={onSearch} onClickRandom={onClickRandom}/>
-        <Cards characters={characters} onClose={onClose}/>
+        <Routes>
+          <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/detail/:id" element={<Detail/>} />
+          <Route path="*" element={<Error/>} />
+        </Routes>
       </div>
+      <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <mask id="border-mask" x="0" y="0" width="100%" height="100%">
+            <circle cx="50%" cy="50%" r="40%" fill="white" />
+          </mask>
+        </defs>
+      </svg>
     </>
   )
 }

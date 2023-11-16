@@ -2,7 +2,7 @@ import Card from './Card';
 
 export default function Cards(props) {
    return (
-      <div>
+      <div className="cards">
          {props.characters &&
             props.characters.map((character) => {
                return (
