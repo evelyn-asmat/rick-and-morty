@@ -10,6 +10,7 @@ export default function Nav(props) {
          <button>
             <NavLink to='/about'>About</NavLink>
          </button>
+         <button onClick={props.logout}>Logout</button>
          <SearchBar onSearch={props.onSearch} />
          <button onClick={props.onClickRandom}>Random</button>
       </>

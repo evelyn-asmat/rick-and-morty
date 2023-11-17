@@ -1,13 +1,19 @@
 import axios from "axios";
-import {useState} from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
-import { Cards, Nav, About, Detail, Error} from './components';
-import { Routes, Route } from 'react-router-dom';
+import { About, Cards, Detail, Error, Form, Nav} from './components';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 const URL = "https://rickandmortyapi.com/api/character";
+const EMAIL = "evelyn.asmat@gmail.com";
+const PASSWORD = "evelyn09";
 
 function App() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
 
   const onSearch = (id) => {
     if (characters.find(c => c.id === parseInt(id))){
@@ -34,24 +40,42 @@ function App() {
     onSearch(random);
   }
 
+  const login = (userData, setUserData) => {
+    if (userData.email === EMAIL && userData.password === PASSWORD){
+      setAccess(true);
+      navigate("/home");
+    } else {
+      setUserData({ ...userData, password: ""});
+      alert("Credenciales incorrectas");
+    }
+  }
+
+  const logout = () => {
+    setAccess(false);
+    navigate("/");
+  }
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
   return (
     <>
       <div className='App'>
-        <Nav onSearch={onSearch} onClickRandom={onClickRandom}/>
+        {
+          (location.pathname !== "/")
+          ? <Nav onSearch={onSearch} onClickRandom={onClickRandom} logout={logout}/>
+          : null
+        }
+        
         <Routes>
+          <Route path="/" element={<Form login={login}/>} />
           <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/detail/:id" element={<Detail/>} />
           <Route path="*" element={<Error/>} />
         </Routes>
       </div>
-      <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <mask id="border-mask" x="0" y="0" width="100%" height="100%">
-            <circle cx="50%" cy="50%" r="40%" fill="white" />
-          </mask>
-        </defs>
-      </svg>
     </>
   )
 }

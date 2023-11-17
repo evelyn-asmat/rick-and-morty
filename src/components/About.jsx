@@ -1,8 +1,8 @@
 export default function About() {
-    return (
-       <div>
-          Evelyn Asmat
-       </div>
-    );
+   return (
+      <div>
+         Evelyn Asmat
+      </div>
+   );
  }
  
