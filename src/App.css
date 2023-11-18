@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 button{
-  background:    #ff00a9;
+  background: #ff52d4;
+  color: white;
+  text-shadow: 0px 0px 10px black;
+  font-weight: bold;
 }
 a{
-  color: #00ddff;
+  color: white;
+  text-decoration: none;
 }
 .App {
   text-align: center;
   color: white;
+  font-family: 'Fira Sans', sans-serif;
 }
 .cards {
   display: flex;
@@ -17,17 +25,38 @@ a{
   width: 15%;
   padding: 2em;
   margin: 1em 0.5em;
-  background: rgba(128,0,255,0.15);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(128,0,255,0.075);
+  background: rgba(72, 61, 139, 0.45);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  border: 2px solid rgba(72, 61, 139, 1);
+  border-radius: 10px;
+  box-shadow: 0px 0px 22px #00ff00cc;
+}
+.character-name{
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  text-shadow: 0px 0px 20px #00ff00;
+  border-bottom: 1px dashed white;
 }
 .character-img {
-  width: 100%;
-  clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+  width: 80%;
+  clip-path: polygon(95% 53%, 99% 34%, 86% 12%, 59% 10%, 44% 1%, 35% 16%, 13% 4%, 3% 30%, 7% 46%, 0% 80%, 18% 98%, 41% 98%, 57% 87%, 77% 99%, 97% 75%);
 }
 
 .wrap-img{
-  filter: drop-shadow(10px 10px 10px #a5ff0bb3);
+  filter: drop-shadow(0px 0px 20px rgba(0, 255, 0, 0.5));
 }
+
+.card:hover, .card:focus{
+  box-shadow: 0px 0px 22px rgba(255, 82, 212, 0.5);
+}
+
+.card:hover .character-img, .card:focus .character-img{
+  transform: scale(1.1);
+}
+
+.card:hover .wrap-img, .card:focus .wrap-img{
+  filter: drop-shadow(0px 0px 20px rgba(255, 82, 212, 0.5));
+}
+
 
