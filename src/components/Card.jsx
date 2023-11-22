@@ -27,6 +27,15 @@ export default function Card(props) {
       });
    }, [myFavorites]);
 
+   // Desafio:
+   // useEffect(() => {
+   //    for (let i = 0; i < myFavorites.length; i++) {
+   //       if (myFavorites[i].id === props.id) {
+   //          setIsFav(true);
+   //       }
+   //    }
+   // }, [myFavorites]);
+
    return (
       <div className="card">
          {

@@ -5,6 +5,8 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import axios from "axios";
+import { removeFav } from './redux/actions'
+import { useDispatch } from 'react-redux';
 
 const URL = "https://rickandmortyapi.com/api/character";
 const EMAIL = "evelyn.asmat@gmail.com";
@@ -16,6 +18,8 @@ function App() {
 
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
+
+  const dispatch = useDispatch();
 
   const onSearch = (id) => {
     if (characters.find(c => c.id === parseInt(id))){
@@ -35,6 +39,7 @@ function App() {
 
   const onClose = (id) => {
     setCharacters(characters.filter(c => c.id !== Number(id)));
+    dispatch(removeFav(id));
   }
 
   const onClickRandom = () => {
