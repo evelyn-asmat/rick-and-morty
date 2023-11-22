@@ -1,8 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from 'react';
 import './App.css';
-import { About, Cards, Detail, Error, Form, Nav} from './components';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+
+import { About, Cards, Detail, Error, Favorites, Form, Nav } from './components';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import axios from "axios";
 
 const URL = "https://rickandmortyapi.com/api/character";
 const EMAIL = "evelyn.asmat@gmail.com";
@@ -72,6 +74,7 @@ function App() {
           <Route path="/" element={<Form login={login}/>} />
           <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
           <Route path="/about" element={<About/>} />
+          <Route path="/favorites" element={<Favorites onClose={onClose}/>} />
           <Route path="/detail/:id" element={<Detail/>} />
           <Route path="*" element={<Error/>} />
         </Routes>
