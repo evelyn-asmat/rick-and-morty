@@ -40,12 +40,12 @@ export default function Card(props) {
       <div className="card">
          {
             isFav ? (
-               <button onClick={handleFavorite}>❤️</button>
+               <button className="btn fav-btn" onClick={handleFavorite}>❤️</button>
             ) : (
-               <button onClick={handleFavorite}>🤍</button>
+               <button className="btn fav-btn" onClick={handleFavorite}>🤍</button>
             )
          }
-         <button className="close-btn" onClick={() => props.onClose(props.id)}>X</button>
+         <button className="btn close-btn" onClick={() => props.onClose(props.id)}>X</button>
          <div className='wrap-img'>
             <img src={props.image} alt='' className="character-img"/>
          </div>

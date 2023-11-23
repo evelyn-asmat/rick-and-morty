@@ -31,6 +31,7 @@ a{
   border: 2px solid rgba(72, 61, 139, 1);
   border-radius: 10px;
   box-shadow: 0px 0px 22px #00ff00cc;
+  position: relative;
 }
 .character-name{
   font-family: 'Orbitron', sans-serif;
@@ -57,6 +58,26 @@ a{
 
 .card:hover .wrap-img, .card:focus .wrap-img{
   filter: drop-shadow(0px 0px 20px rgba(255, 82, 212, 0.5));
+}
+
+.btn {
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+}
+.fav-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.3rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  padding: 0.3rem 0.5rem;
 }
 
 
