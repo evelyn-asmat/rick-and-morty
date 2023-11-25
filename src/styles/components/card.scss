@@ -1,0 +1,47 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 15%;
+    padding: 2em;
+    margin: 1em 0.5em;
+    background: $color-bg-purple;
+    -webkit-backdrop-filter: $blur-1px;
+    backdrop-filter: $blur-1px;
+    border: 2px solid $color-purple;
+    border-radius: 10px;
+    box-shadow: 0px 0px 22px $color-shadow-green;
+    position: relative;
+    
+    &:hover, &:focus {
+        box-shadow: 0px 0px 22px $color-shadow-pink;
+    }
+    
+    &:hover .character-img, &:focus .character-img {
+        transform: scale(1.1);
+    }
+    
+    &:hover .wrap-img, &:focus .wrap-img {
+        filter: drop-shadow(0px 0px 20px $color-shadow-pink);
+    }
+}
+
+
+.character-name {
+    font-family: $font-alternative;
+    color: white;
+    text-shadow: 0px 0px 12px $color-shadow-green;
+    border-bottom: 1px dashed white;
+}
+
+.character-img {
+    width: 80%;
+    clip-path: polygon(95% 53%, 99% 34%, 86% 12%, 59% 10%, 44% 1%, 35% 16%, 13% 4%, 3% 30%, 7% 46%, 0% 80%, 18% 98%, 41% 98%, 57% 87%, 77% 99%, 97% 75%);
+}
+
+.wrap-img {
+    filter: drop-shadow(0px 0px 20px $color-shadow-green);
+}

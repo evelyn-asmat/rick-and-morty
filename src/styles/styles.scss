@@ -1,0 +1,12 @@
+// global
+@import "./global/_fonts.scss";
+@import "./global/_variables.scss";
+@import "./global/normalize.scss";
+@import "./global/global.scss";
+
+// components
+@import "./components/form.scss";
+@import "./components/card.scss";
+
+// elements
+@import "./elements/button.scss";
