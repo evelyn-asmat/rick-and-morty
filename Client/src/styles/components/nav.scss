@@ -1,0 +1,29 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: $color-shadow-pink;
+  color: white;
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+
+    button {
+      margin: 5px 0;
+    }
+  }
+}

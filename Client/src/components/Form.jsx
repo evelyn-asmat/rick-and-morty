@@ -28,7 +28,7 @@ export default function Form(props) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email </label>
             <input
                 type="text"
                 name="email"
@@ -37,7 +37,7 @@ export default function Form(props) {
             />
             <p style={{color:"#ff00a9"}}>{ errors.email ? errors.email : null }</p>
 
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password </label>
             <input 
                 type="password"
                 name="password"
