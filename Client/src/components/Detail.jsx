@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
+
 import axios from "axios";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const URL = "https://rickandmortyapi.com/api/character";
+const URL_ANTIGUA = "https://rickandmortyapi.com/api/character";
+const URL = "http://localhost:3001/rickandmorty/character";
 
 export default function Detail() {
    const {id} = useParams();

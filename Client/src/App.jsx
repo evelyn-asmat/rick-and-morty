@@ -8,7 +8,8 @@ import axios from "axios";
 import { removeFav } from './redux/actions'
 import { useDispatch } from 'react-redux';
 
-const URL = "https://rickandmortyapi.com/api/character";
+const URL_ANTIGUA = "https://rickandmortyapi.com/api/character";
+const URL = "http://localhost:3001/rickandmorty/character";
 const EMAIL = "evelyn.asmat@gmail.com";
 const PASSWORD = "evelyn09";
 
