@@ -1,26 +1,25 @@
 const axios = require("axios");
-const URL = "https://rym2.up.railway.app/api/character";
-const API_KEY = "henrystaff";
+const URL = "https://rickandmortyapi.com/api/character";
 
-const getCharById = (res, id) => {
-    axios(`${URL}/${id}?key=${API_KEY}`)
+const getCharById = (req, res) => {
+    const { id } = req.params;
+    axios(`${URL}/${id}`)
         .then((response) => {
-            const {name, gender, species, origin, image, status} = response.data;
+            const { data } = response;
             const character = {
-                id,
-                name,
-                gender,
-                species,
-                origin,
-                image,
-                status
+                id: data.id,
+                name: data.name,
+                gender: data.gender,
+                species: data.species,
+                origin: data.origin,
+                image: data.image,
+                status: data.status,
+                location: data.location
             }
-            res.writeHead(200, { "Content-Type": "application/json" });
-            return res.end(JSON.stringify(character));
+            res.json(character);
         })
         .catch((error) => {
-            res.writeHead(500, { "Content-Type": "text/plain" });
-	        return res.end(error.message);
+            res.status(error.response.status).send(error.response.data.error);
         });
 }
 

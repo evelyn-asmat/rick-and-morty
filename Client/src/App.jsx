@@ -8,10 +8,7 @@ import axios from "axios";
 import { removeFav } from './redux/actions'
 import { useDispatch } from 'react-redux';
 
-const URL_ANTIGUA = "https://rickandmortyapi.com/api/character";
 const URL = "http://localhost:3001/rickandmorty/character";
-const EMAIL = "evelyn.asmat@gmail.com";
-const PASSWORD = "evelyn09";
 
 function App() {
   const location = useLocation();
@@ -24,18 +21,14 @@ function App() {
 
   const onSearch = (id) => {
     if (characters.find(c => c.id === parseInt(id))){
-      window.alert('¡Personaje ya agregado!');
+      window.alert('¡Character already exists!');
       return;
     }
-    axios(`${URL}/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert('¡No hay personajes con este ID!');
-        }
-      }
-   );
+    axios(`${URL}/${id}`)
+      .then(({ data }) => {
+        setCharacters((oldChars) => [...oldChars, data]);
+      })
+      .catch(err => alert(err.response.statusText || err.response.data));
   }
 
   const onClose = (id) => {
@@ -48,14 +41,15 @@ function App() {
     onSearch(random);
   }
 
-  const login = (userData, setUserData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD){
-      setAccess(true);
-      navigate("/home");
-    } else {
-      setUserData({ ...userData, password: ""});
-      alert("Credenciales incorrectas");
-    }
+  const login = (userData) => {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`)
+      .then(({ data }) => {
+        const { access } = data;
+        setAccess(data);
+        access ? navigate('/home'): alert("Invalid credentials");
+    });
   }
 
   const logout = () => {
