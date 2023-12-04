@@ -1,0 +1,12 @@
+.filters {
+    position: fixed;
+    top: 60px; /* Ajusta según sea necesario para evitar superposición con el nav */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    z-index: 1;
+
+    & + .cards {
+        margin-top: 200px;
+    }
+}

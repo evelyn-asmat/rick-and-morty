@@ -1,13 +1,22 @@
 body {
-    margin: 0;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 html {
-    background: repeat-y url("/bg.png");
-    background-size: cover;
-    background-attachment: fixed;
+  background: repeat-y url("/bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+#root{
+  max-width: 100%;
+  position: relative;
 }
 a {
   color: white;
@@ -17,4 +26,17 @@ a {
   text-align: center;
   color: white;
   font-family: $font-general;
+}
+.color-alive {
+  color: $color-green;
+}
+.color-dead {
+  color: $color-pink;
+}
+.color-unknown {
+  color: gray;
+}
+
+h2 {
+  font-size: 1.2em;
 }

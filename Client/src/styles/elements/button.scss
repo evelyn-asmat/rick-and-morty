@@ -3,6 +3,7 @@ button {
     color: white;
     text-shadow: 0px 0px 10px black;
     font-weight: bold;
+    border: none;
 }
 
 .btn {
@@ -14,7 +15,14 @@ button {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0.3rem;
+    padding: 0.5rem;
+    .fa-beat {
+        color: $color-pink;
+    }
+    &:hover {
+        color: $color-pink;
+        transform: scale(1.1);
+    }
 }
 
 .close-btn {
@@ -22,5 +30,10 @@ button {
     top: 0;
     left: 0;
     font-weight: bold;
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem 0.5rem;
+    
+    &:hover {
+        color: $color-pink;
+        transform: scale(1.1);
+    }
 }

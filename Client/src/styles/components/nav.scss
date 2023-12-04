@@ -1,10 +1,15 @@
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
   padding: 10px;
   background-color: $color-shadow-pink;
   color: white;
+  z-index: 1000;
+  height: 35px;
 
   button {
     background-color: transparent;
@@ -19,8 +24,15 @@ nav {
     }
   }
 
+  input {
+    width: auto;
+    opacity: 0.9;
+    border-color: white;
+  }
+
   @media (max-width: $mobile-breakpoint) {
     flex-direction: column;
+    height: auto;
 
     button {
       margin: 5px 0;

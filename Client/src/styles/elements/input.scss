@@ -1,0 +1,16 @@
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid $color-green;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: $color-input;
+
+    color: #fff;
+
+    &:focus {
+        outline: none;
+        border-color: $color-pink;
+    }
+}

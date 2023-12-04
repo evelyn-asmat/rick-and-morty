@@ -1,0 +1,17 @@
+select {
+  font-size: 14px;
+  padding: 6px;
+  border: 2px solid $color-shadow-pink;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+
+  &:hover, &:focus {
+    filter: drop-shadow(0px 0px 2px $color-shadow-pink);
+    box-shadow: 0px 0px 10px $color-shadow-pink;
+  }
+}
+  

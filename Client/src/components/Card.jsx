@@ -40,20 +40,25 @@ export default function Card(props) {
       <div className="card">
          {
             isFav ? (
-               <button className="btn fav-btn" onClick={handleFavorite}>❤️</button>
+               <button className="btn fav-btn" onClick={handleFavorite}><i class="fa-solid fa-heart fa-beat"></i></button>
             ) : (
-               <button className="btn fav-btn" onClick={handleFavorite}>🤍</button>
+               <button className="btn fav-btn" onClick={handleFavorite}><i class="fa-regular fa-heart fa-lg"></i></button>
             )
          }
-         <button className="btn close-btn" onClick={() => props.onClose(props.id)}>X</button>
+         <button className="btn close-btn" onClick={() => props.onClose(props.id)}><i className="fa-solid fa-xmark fa-lg"></i></button>
          <Link to={`/detail/${props.id}`} className="character-name">
             <div className='wrap-img'>
                <img src={props.image} alt='' className="character-img"/>
             </div>
             <h2>{props.name}</h2>
          </Link>
-         <p>{props.status} | {props.gender}</p>
-         <p><b>{props.origin}</b></p>
+         <p>
+            <i className={`fa-solid fa-circle-dot fa-2xs color-${props.status.toLowerCase()}`}></i> {props.status} | &nbsp;
+            <i className={`fa-solid fa-sm
+               ${props.gender.toLowerCase() === 'genderless'? 'fa-genderless' : (
+                  props.gender.toLowerCase() === 'female'? 'fa-venus' : (
+                     props.gender.toLowerCase() === 'male'? 'fa-mars' : 'fa-question'))} `}></i> {props.gender}</p>
+         <p><b><i className="fa-solid fa-location-dot fa-sm"></i> {props.origin}</b></p>
       </div>
    );
 }
