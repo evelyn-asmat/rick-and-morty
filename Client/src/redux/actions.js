@@ -33,7 +33,7 @@ export const filterCards = (gender) => ({
   payload: gender
 });
 
-export const orderCards = (orden) => ({
+export const orderCards = (order) => ({
   type: ORDER,
-  payload: orden,
+  payload: order,
 });

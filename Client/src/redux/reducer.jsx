@@ -34,7 +34,7 @@ export const reducer = (state = initialState, { type, payload }) => {
     case ORDER:
       return {
         ...state,
-        myFavorites: state.myFavorites.sort((a,b) => {
+        myFavorites: [...state.myFavorites].sort((a,b) => {
           if (payload === 'A'){
             return a.id - b.id
           } else if (payload === 'D') {

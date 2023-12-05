@@ -23,8 +23,9 @@ export default function Favorites(props) {
       <>
          <div className='filters'>
             <select name="order" onChange={handleOrder} >
-               <option value="A">Ascendente</option>
-               <option value="D">Descendente</option>
+               <option value="">----</option>
+               <option value="A">Ascending</option>
+               <option value="D">Descending</option>
             </select>
             <select name="filter" onChange={handleFilter} >
                <option value="All">All</option>

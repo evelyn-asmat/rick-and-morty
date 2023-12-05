@@ -27,30 +27,33 @@ export default function Form(props) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email </label>
-            <input
-                type="text"
-                name="email"
-                value={userData.email}
-                onChange={handleChange}
-            />
-            <p style={{color:"#ff00a9"}}>{ errors.email ? errors.email : null }</p>
+        <div className="login">
+            <form onSubmit={handleSubmit}>
+                <img src="title.png" alt="Rick And Morty" className="form-logo"/>
+                <label htmlFor="email">Email </label>
+                <input
+                    type="text"
+                    name="email"
+                    value={userData.email}
+                    onChange={handleChange}
+                />
+                <p className="form-error">{ errors.email ? errors.email : null }</p>
 
-            <label htmlFor="password">Password </label>
-            <input 
-                type="password"
-                name="password"
-                value={userData.password}
-                onChange={handleChange}
-            />
-            <p style={{color:"#ff00a9"}}>{ errors.password ? errors.password : null }</p>
+                <label htmlFor="password">Password </label>
+                <input 
+                    type="password"
+                    name="password"
+                    value={userData.password}
+                    onChange={handleChange}
+                />
+                <p className="form-error">{ errors.password ? errors.password : null }</p>
 
-            <button 
-                type="submit"
-                disabled={ !userData.email || errors.email || errors.password }
-            >Submit</button>
-        </form>
+                <button 
+                    type="submit"
+                    disabled={ !userData.email || errors.email || errors.password }
+                >Submit</button>
+            </form>
+        </div>
     );
  }
  

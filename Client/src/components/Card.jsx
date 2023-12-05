@@ -40,9 +40,9 @@ export default function Card(props) {
       <div className="card">
          {
             isFav ? (
-               <button className="btn fav-btn" onClick={handleFavorite}><i class="fa-solid fa-heart fa-beat"></i></button>
+               <button className="btn fav-btn" onClick={handleFavorite}><i className="fa-solid fa-heart fa-beat"></i></button>
             ) : (
-               <button className="btn fav-btn" onClick={handleFavorite}><i class="fa-regular fa-heart fa-lg"></i></button>
+               <button className="btn fav-btn" onClick={handleFavorite}><i className="fa-regular fa-heart fa-lg"></i></button>
             )
          }
          <button className="btn close-btn" onClick={() => props.onClose(props.id)}><i className="fa-solid fa-xmark fa-lg"></i></button>
