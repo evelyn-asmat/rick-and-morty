@@ -19,16 +19,18 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const onSearch = (id) => {
-    if (characters.find(c => c.id === parseInt(id))){
-      window.alert('¡Character already exists!');
-      return;
+  const onSearch = async (id) => {
+    try {
+      if (characters.find(c => c.id === parseInt(id))){
+        window.alert('¡Character already exists!');
+        return;
+      }
+      const { data } = await axios(`${URL}/${id}`);
+      setCharacters((oldChars) => [...oldChars, data]);
+    } catch (err) {
+      alert(err.message);
     }
-    axios(`${URL}/${id}`)
-      .then(({ data }) => {
-        setCharacters((oldChars) => [...oldChars, data]);
-      })
-      .catch(err => alert(err.response.statusText || err.response.data));
+      
   }
 
   const onClose = (id) => {
@@ -41,15 +43,16 @@ function App() {
     onSearch(random);
   }
 
-  const login = (userData) => {
-    const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`)
-      .then(({ data }) => {
-        const { access } = data;
-        setAccess(data);
-        access ? navigate('/home'): alert("Invalid credentials");
-    });
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      const { data } = await axios(URL + `?email=${email}&password=${password}`)
+      setAccess(data.access);
+      data.access ? navigate('/home'): alert("Invalid credentials");
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
   const logout = () => {
