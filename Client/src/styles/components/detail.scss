@@ -1,0 +1,15 @@
+.detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    .color-icon{
+        color: white;
+        text-shadow: 0px 0px 2px $color-shadow-green;
+    }
+
+    .fa-angle-right {
+        color: $color-green;
+    }
+}

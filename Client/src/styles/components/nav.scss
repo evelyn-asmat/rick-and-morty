@@ -24,10 +24,23 @@ nav {
     }
   }
 
+  .search-bar {
+    border: 2px solid $color-shadow-black;
+    border-radius: 8px;
+  }
+
   input {
+    height: 31px;
     width: auto;
     opacity: 0.9;
-    border-color: white;
+    border: none;
+    margin: 0;
+    padding: 8px;
+    color: white;
+
+    &:focus{
+      border: none;
+    }
   }
 
   @media (max-width: $mobile-breakpoint) {

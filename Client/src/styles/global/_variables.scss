@@ -3,14 +3,17 @@ $mobile-breakpoint: 600px;
 $font-general: 'Fira Sans', sans-serif;
 $font-alternative: 'Orbitron', sans-serif;
 
+$color-shadow-pink: rgba(255, 82, 212, 0.85);
+$color-shadow-green: rgba(0, 255, 0, 0.6);
+$color-shadow-black: rgba(0, 0, 0, 0.5);
+
 $color-pink: #ff52d4;
+$color-red: #ff5252;
 $color-green: #00ff00;
 $color-purple: #5200ff;
-$color-input: #282c34;
+$color-yellow: #FFD700;
+$color-input: $color-shadow-black;
 
 $color-bg-purple: rgba(71, 61, 138, 0.4);
-
-$color-shadow-pink: rgba(255, 82, 212, 0.5);
-$color-shadow-green: rgba(0, 255, 0, 0.6);
 
 $blur-1px: blur(1px);
