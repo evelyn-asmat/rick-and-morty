@@ -3,6 +3,9 @@ const session = require('supertest');
 const agent = session(app);
 const users = require('../src/utils/users');
 
+let character1;
+let character2;
+
 describe("GET /rickandmorty/character/:id", () => {
     it("Responde con status: 200", async () => {
         await agent.get('/rickandmorty/character/1').expect(200);
@@ -34,8 +37,6 @@ describe("GET /rickandmorty/login", () => {
 });
 
 describe("POST /rickandmorty/fav", () => {
-    let character1;
-    let character2;
     it("Guarda favorito", async () => {
         character1 = await agent.get('/rickandmorty/character/1');
         const response = await agent.post('/rickandmorty/fav').send(character1.body);
@@ -46,5 +47,18 @@ describe("POST /rickandmorty/fav", () => {
         const response = await agent.post('/rickandmorty/fav').send(character2.body);
         expect(response.body).toContainEqual(character1.body);
         expect(response.body).toContainEqual(character2.body);
+    });
+});
+
+describe("DELETE /rickandmorty/fav/:id", () => {
+    it("Devuelve los mismos personajes si id no existe", async () => {
+        const response = await agent.delete('/rickandmorty/fav/100');
+        expect(response.body).toContainEqual(character1.body);
+        expect(response.body).toContainEqual(character2.body); 
+    });
+    it("Personaje se elimina correctamente", async () => {
+        const response = await agent.delete('/rickandmorty/fav/1');
+        expect(response.body).not.toContainEqual(character1.body);
+        expect(response.body).toContainEqual(character2.body);    
     });
 });
