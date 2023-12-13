@@ -27,6 +27,7 @@ function App() {
       }
       const { data } = await axios(`${URL}/${id}`);
       setCharacters((oldChars) => [...oldChars, data]);
+      navigate("/home");
     } catch (err) {
       alert(err.message);
     }

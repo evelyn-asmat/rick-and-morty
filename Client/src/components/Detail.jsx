@@ -18,25 +18,48 @@ export default function Detail() {
             } else {
                window.alert('No hay personajes con ese ID');
             }
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('detail-data').style.display = 'block';
          }
-      );
+      ); 
       return setCharacter({});
    }, [id]);
 
    if (character) {
       return (
-         <div className="detail">
-            <div>
+         <div className="detail neon">
+            <div id="spinner" className="fa-3x">
+               <i className="fa-solid fa-spinner fa-spin-pulse"></i>
+            </div>
+            <div id="detail-data">
                <h1 className="character-name">{character.name}</h1>
-               <h2> <i className={`fa-solid fa-circle-dot fa-2xs color-${(character.status || '').toLowerCase()}`}></i> STATUS <i className="fa-solid fa-angle-right fa-xs fa-fade"></i> {character.status}</h2>
-               <h2> <i className="fa-solid fa-users fa-sm color-icon"></i> SPECIES <i className="fa-solid fa-angle-right fa-xs fa-fade"></i> {character.species}</h2>
-               <h2> <i className={`fa-solid fa-sm color-icon
+               <h2>
+                  <span className="property">STATUS</span>
+                  <i className="fa-solid fa-angle-right fa-xs fa-fade"></i>
+                  <i className={`fa-solid fa-circle-dot fa-2xs color-${(character.status || '').toLowerCase()}`}></i>&nbsp;
+                  {character.status}
+               </h2>
+               <h2>
+                  <span className="property">SPECIES</span>
+                  <i className="fa-solid fa-angle-right fa-xs fa-fade"></i>
+                  <i className="fa-solid fa-users fa-sm color-icon"></i>&nbsp;
+                  {character.species}
+               </h2>
+               <h2>
+                  <span className="property">GENDER</span>
+                  <i className="fa-solid fa-angle-right fa-xs fa-fade"></i>
+                  <i className={`fa-solid fa-sm color-icon
                      ${(character.gender || '').toLowerCase() === 'genderless'? 'fa-genderless' : (
                         (character.gender || '').toLowerCase() === 'female'? 'fa-venus' : (
-                           (character.gender || '').toLowerCase() === 'male'? 'fa-mars' : 'fa-question'))} `}></i>
-                  &nbsp; GENDER <i className="fa-solid fa-angle-right fa-xs fa-fade"></i> {character.gender}
+                           (character.gender || '').toLowerCase() === 'male'? 'fa-mars' : 'fa-question'))} `}></i>&nbsp;
+                  {character.gender}
                </h2>
-               <h2> <i className="fa-solid color-icon fa-location-dot fa-sm"></i> ORIGIN <i className="fa-solid fa-angle-right fa-xs fa-fade"></i> {character.origin && character.origin.name}</h2>
+               <h2>
+                  <span className="property">ORIGIN</span>
+                  <i className="fa-solid fa-angle-right fa-xs fa-fade"></i>
+                  <i className="fa-solid color-icon fa-location-dot fa-sm"></i> &nbsp;
+                  {character.origin && character.origin.name}
+               </h2>
             </div>
             <div className="wrap-img">
                <img src={character.image} className='character-img'/>

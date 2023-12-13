@@ -1,21 +1,42 @@
 button {
-    background: $color-pink;
-    color: white;
-    text-shadow: 0px 0px 10px black;
-    font-weight: bold;
+    line-height: 1.2;
+    padding: 8px 20px;
+    color: $color-green;
+    background: transparent;
+    font-weight: bolder;
     border: none;
-}
+    border-radius: 0;
+    box-shadow: $color-green 0px 0.2em, $color-green 0px -0.2em, $color-green 0.2em 0px, $color-green -0.2em 0px;
+    
+    &:hover {
+        transform: scale(0.9);
+    }
+    
+    &:has(a.active) {
+        box-shadow: $color-pink 0px 0.2em, $color-pink 0px -0.2em, $color-pink 0.2em 0px, $color-pink -0.2em 0px;
+    }
+    
+    a {
+        color: $color-green;
+    }
 
+    a.active {
+        color: $color-pink;
+    }
+    
+}
 .btn {
     background-color: transparent;
     color: white;
-    border-radius: 5px;
+    box-shadow: none;
+    
 }
 .fav-btn {
     position: absolute;
     top: 0;
     right: 0;
     padding: 0.5rem;
+    
     .fa-beat {
         color: $color-pink;
     }

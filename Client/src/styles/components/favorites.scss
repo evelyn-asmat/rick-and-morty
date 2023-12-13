@@ -6,7 +6,12 @@
     padding: 10px;
     z-index: 1;
 
-    & + .cards {
-        margin-top: 200px;
+    & + .cards:has(.card) {
+        margin-top: 190px;
     }
+
+    & + .cards > .neon{
+        margin-top: 100px;
+    }
+
 }

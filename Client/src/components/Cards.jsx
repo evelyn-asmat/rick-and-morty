@@ -3,7 +3,7 @@ import Card from './Card';
 export default function Cards(props) {
    return (
       <div className="cards">
-         {props.characters &&
+         {props.characters && props.characters.length > 0 ? (
             props.characters.map((character) => {
                return (
                   <Card
@@ -19,6 +19,9 @@ export default function Cards(props) {
                   />
                )
             })
+         ) : (
+            <div className='box-center neon'>No characters added</div>
+         )
          }
       </div>
    );

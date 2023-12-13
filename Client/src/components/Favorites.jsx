@@ -36,21 +36,26 @@ export default function Favorites(props) {
             </select>
          </div>
          <div className='cards'>
-            {myFavorites && myFavorites.map((character) => {
-               return (
-                  <Card
-                     key={character.id}
-                     id={character.id}
-                     name={character.name}
-                     status={character.status}
-                     species={character.species}
-                     gender={character.gender}
-                     origin={character.origin}
-                     image={character.image}
-                     onClose={props.onClose}
-                  />
+            {myFavorites && myFavorites.length > 0 ? (
+               myFavorites.map((character) => {
+                  return (
+                     <Card
+                        key={character.id}
+                        id={character.id}
+                        name={character.name}
+                        status={character.status}
+                        species={character.species}
+                        gender={character.gender}
+                        origin={character.origin}
+                        image={character.image}
+                        onClose={props.onClose}
+                     />
+                  )
+               })
+               ) : (
+                  <div className='box-center neon'>No favorites available</div>
                )
-            })}
+            }
          </div>
       </>
    )

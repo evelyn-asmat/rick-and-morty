@@ -50,8 +50,9 @@ export default function Form(props) {
 
                 <button 
                     type="submit"
+                    className="submit"
                     disabled={ !userData.email || errors.email || errors.password }
-                >Submit</button>
+                ><span>Submit</span><i></i></button>
             </form>
         </div>
     );

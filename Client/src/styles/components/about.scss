@@ -1,0 +1,45 @@
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-height: calc(100vh - 40px);
+    margin: 5% 0 1%;
+    padding: 20px 120px;
+    align-self: flex-start;
+
+    header {
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    aside {
+        flex-basis: 400px;
+    }
+
+    h1,
+    h2 {
+        font-family: $font-alternative;
+        color: $color-pink;
+    }
+
+    i {
+        color: $color-green;
+    }
+
+    .highlight{
+        color: $color-green;
+    }
+
+    a {
+        text-decoration: dotted underline;
+    }
+
+    h1 {
+        text-decoration: dotted underline white;
+    }
+}

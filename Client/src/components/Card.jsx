@@ -36,11 +36,21 @@ export default function Card(props) {
    //    }
    // }, [myFavorites]);
 
+   document.addEventListener('DOMContentLoaded', function () {
+      var filtersContainer = document.querySelector('.filters');
+      var cardsContainer = document.querySelector('.cards');
+      var cardCount = cardsContainer.querySelectorAll('.card').length;
+
+      if (cardCount < 5) {
+        filtersContainer.style.marginTop = '20px';
+      }
+   });
+
    return (
       <div className="card">
          {
             isFav ? (
-               <button className="btn fav-btn" onClick={handleFavorite}><i className="fa-solid fa-heart fa-beat"></i></button>
+               <button className="btn fav-btn" onClick={handleFavorite}><i className="fa-solid fa-heart fa-beat" style={{'--fa-beat-scale': '1.4'}}></i></button>
             ) : (
                <button className="btn fav-btn" onClick={handleFavorite}><i className="fa-regular fa-heart fa-lg"></i></button>
             )

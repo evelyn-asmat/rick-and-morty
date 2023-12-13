@@ -1,15 +1,15 @@
 input {
     padding: 10px;
     margin: 10px 0;
-    border: 2px solid $color-green;
+    border: 0;
+    box-shadow: #27272c 0px 0.2em, #27272c 0px -0.2em, #27272c 0.2em 0px, #27272c -0.2em 0px;
     background: $color-input;
     color: $color-green;
-    border-radius: 5px;
     outline: none;
     transition: border-color 0.3s ease, background 0.3s ease;
     
     &:focus {
-        border-color: $color-yellow;
+        box-shadow: $color-pink 0px 0.2em, $color-pink 0px -0.2em, $color-pink 0.2em 0px, $color-pink -0.2em 0px;
     }
     
     &:focus+label,
@@ -23,9 +23,11 @@ input {
         -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
         -webkit-text-fill-color: $color-green !important;
         transition: background-color 5000s ease-in-out 0s;
+        box-shadow: #27272c 0px 0.2em, #27272c 0px -0.2em, #27272c 0.2em 0px, #27272c -0.2em 0px !important;
     }
     
     &:-webkit-autofill:focus {
         background-color: transparent !important;
+        box-shadow: $color-pink 0px 0.2em, $color-pink 0px -0.2em, $color-pink 0.2em 0px, $color-pink -0.2em 0px !important;
     }
 }

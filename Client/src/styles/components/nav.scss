@@ -2,44 +2,21 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: calc(100% - 10px);
   display: flex;
   justify-content: space-around;
   padding: 10px;
-  background-color: $color-shadow-pink;
-  color: white;
   z-index: 1000;
-  height: 35px;
 
   button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    margin: 0 10px;
-    cursor: pointer;
-    font-size: 16px;
-
-    &:hover {
-      text-decoration: underline;
-    }
+    margin-right: 10px;
   }
-
+  
   .search-bar {
-    border: 2px solid $color-shadow-black;
-    border-radius: 8px;
-  }
-
-  input {
-    height: 31px;
-    width: auto;
-    opacity: 0.9;
-    border: none;
-    margin: 0;
-    padding: 8px;
-    color: white;
-
-    &:focus{
-      border: none;
+    display: inline;
+    input {
+      margin: auto 10px;
+      box-shadow: $color-green 0px 1px, transparent 0px -0.1em, transparent 0.1em 0px, transparent -0.1em 0px;
     }
   }
 
