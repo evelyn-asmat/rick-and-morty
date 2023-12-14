@@ -3,7 +3,7 @@ const server = require("./app");
 const PORT = 3001;
 
 conn
-   .sync({force: true})
+   .sync({alter: true})
    .then(()=>{
       server.listen(PORT, () => {
          console.log('Server raised in port: ' + PORT);

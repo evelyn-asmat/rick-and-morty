@@ -9,10 +9,11 @@ const sequelize = new Sequelize(
    { logging: false, native: false }
 );
 
+// Define models
 FavoriteModel(sequelize);
 UserModel(sequelize);
 
-// Relaciones
+// Associations
 const { User, Favorite } = sequelize.models;
 
 User.belongsToMany(Favorite, { through: "user_favorite" });
